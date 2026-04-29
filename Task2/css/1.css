@@ -1,0 +1,248 @@
+
+
+.nav ul{
+    display: flex;
+    list-style: none;
+    gap: 16PX;
+    flex-wrap: wrap;
+}
+.header{
+background-color: rgb(117, 185, 188);
+    padding: 20px 0;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+    height: 50px;
+    
+    
+     position: sticky;
+     top: 0;
+     
+     
+ }
+ .logo{
+    display: flex;
+    gap: 3px;
+    flex-wrap: wrap;
+ }
+ .header .logo a{
+    color: var(--mainColor);
+ }
+ 
+ .header .nav a{
+    color:#101928;
+ }
+ .header .auth {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.header .auth a{
+    font-family: var(--subFont);
+    border-radius:10px ;
+}
+
+.header .auth a:first-of-type{
+    border:1px solid var(--mainColor);
+    padding:5px 30px;
+}
+ .header .auth a:last-of-type{
+    border: 1px solid var(--mainColor);
+    padding: 5px 30px;
+    background-color: var(--mainColor);
+    color: white;
+    
+
+ }
+
+ .foot{
+    background-color:#393E46;
+    padding:150px 0px;
+  
+   
+ }
+ .foot .logo_fotter  img{
+    width: 35px;
+    height: 35px;
+ }
+
+ .foot .logo_fotter{
+   display: flex;
+   
+   justify-content: center;
+   
+  
+
+ }
+ .foot .icons{
+
+display: flex;
+
+justify-content: center;
+
+
+ }
+ .foot .icons{
+   display: block;
+ }
+ 
+ 
+
+.pages .imags img{
+   display: block;
+}
+.navbar{
+   background-color: rgb(117, 185, 188);
+    padding: 20px 0;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+    height: 50px;
+    
+    
+     position: sticky;
+     top: 0;
+    
+    z-index:99999;
+}
+.ro{
+   display: flex;
+   justify-content: center;
+}
+
+.photos{
+   height: 75vh;
+   background-image: url('../img/bzu.jpg'); 
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+}
+
+.yamen{
+   background-color: black;
+  color:aliceblue;
+   font-family: 'Times New Roman', Times, serif;
+   font-size: 14px;
+ margin: 60px;
+   font-weight: bolder;
+   position: relative;
+}
+.ziad{
+   
+   background-color: black;
+   color:aliceblue;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+  margin: 60px;
+    font-weight: bolder;
+    position: relative;
+}
+
+.qosai{
+
+   background-color: black;
+   color:aliceblue;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+  margin: 60px;
+    font-weight: bolder;
+position: relative;
+transition: 2s;
+
+}
+
+.item{
+
+   background-color: rgba(57, 51, 51, 0.6);
+ 
+position: absolute;
+   top: 0;
+   bottom:53px;
+   left: 0;
+   right: 0;
+   color: #d6cbcb;
+   display: flex;
+   flex-direction:column;
+   justify-content: center;
+   transition: 2.5s;
+   opacity: 0;
+}
+
+.item:hover{
+
+  opacity: 1;
+  cursor: pointer;
+  
+
+
+}
+.links{
+   display:flex;
+   flex-direction: column;
+   justify-content: center;
+}
+.links a{
+   color: aliceblue;
+}
+.item{
+
+   padding: 45px;
+}
+.ii{
+   position: relative;
+   overflow: hidden;
+   transition: 2.5s;
+  
+   
+}
+.ii:hover{
+   box-shadow: 10px 10px 10px rgba(0,0,0,1);
+ 
+   
+   
+}
+.ii:hover img{
+   width: 350px;
+   height: 350px;
+   
+ 
+}
+.aaa{
+   transition: 2.5s;
+}
+.topics{
+   background-color: rgb(124, 139, 139);
+   height: 1000px;
+   width:800pxpx
+
+}
+#types{
+   text-align: center;
+}
+.topics .row{
+ 
+   padding-top: 30px;
+   
+}
+.topics{
+
+   font-weight: bold;
+   font-style: italic;
+}
+.non img{
+   display: block;
+   box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+   transition: 1.5s;
+}
+.yes img{
+   box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+   transition: 1.5s;
+}
+
+.non:hover img{
+   box-shadow: 10px 10px 10px rgba(0,0,0,1);
+   width:350px;
+   height: 350px;
+}
+.yes:hover img{
+   box-shadow: 10px 10px 10px rgba(0,0,0,1);
+   width:350px;
+   height: 350px;
+}

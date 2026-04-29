@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rt1">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video or Photo Form</title>
+    <link rel="stylesheet" href="css/sup.css">
+</head>
+<body>
+    <div id="form_container">
+        <form method="get" action="/">
+            <div class="form-group">
+                <label for="file">ادخل اسم الصورة او الفيديو</label>
+                <input type="text" id="file" name="file" placeholder="ادخل الاسم..." required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Dynamically display the image or video based on the input -->
+    <div id="media_display">
+        <img id="image" src="" alt="Requested Image" style="display: none;" />
+        <video id="video" controls style="display: none;">
+            <source src="" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+    document.querySelector("form").addEventListener("submit", function(e) {
+    e.preventDefault();  // Prevent form submission
+
+    var mediaName = document.getElementById("file").value;
+    var image = document.getElementById("image");
+    var video = document.getElementById("video");
+
+    // Hide both image and video initially
+    image.style.display = "none";
+    video.style.display = "none";
+
+    // Make a GET request to the server
+    fetch("/" + mediaName, {
+        method: "GET",
+        headers: {
+            'Accept': 'image/*,video/*,application/json,*/*;q=0.5',  // Set the Accept header
+        },
+        redirect: 'manual'  // Disable automatic redirection
+    })
+    .then(response => {
+        console.log('Response Status:', response.status); // Log the response status
+
+        if (response.status === 307) {
+            // If the response status is 307, manually handle the redirect
+            const redirectUrl = response.headers.get("Location");
+            console.log('Redirecting to:', redirectUrl); // Log the redirect URL
+
+            // Perform the redirect manually
+            window.location.href = redirectUrl;  // Force the browser to navigate to the redirect URL
+        } else if (response.status === 200) {
+            // If we get a valid response (image or video), process it as a blob
+            return response.blob();
+        } else {
+            alert("Media not found or unsupported format.");
+        }
+    })
+    .then(blob => {
+        if (blob) {
+            const contentType = blob.type;
+            if (contentType.startsWith("image")) {
+                const objectURL = URL.createObjectURL(blob);
+                image.style.display = "block";
+                image.src = objectURL;
+            } else if (contentType.startsWith("video")) {
+                const objectURL = URL.createObjectURL(blob);
+                video.style.display = "block";
+                video.querySelector("source").src = objectURL;
+                video.load();
+            }
+        }
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
+});
+
+
+
+    </script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/1.css">
+    <link rel="stylesheet" href="css/base.css">
+    <title>ENCS3320-Webserver</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="container">
+            <div class="ro">
+                <div class="lo">
+                    <h1 style="color: blue; text-align: center; margin: 20px auto 0; display: block;">
+                        Welcome to ENCS3320 - Computer Networks Webserver
+                      </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="photos">
+
+        <div class="container">
+            <div class="row">
+                <div class="card">
+                  <img src="img/Ikhraiwesh.jpg" alt="Ziad Ikhraiwesh">
+                  <p><strong>Ziad Ikhraiwesh</strong></p>
+                  <p>1222671</p>
+                  <p>"Point at the image, and the details will show up."</p>
+                  <div class="item">
+                    <p>Skills: Frontend, OOP, C++, Java</p>
+                  </div>
+                </div>
+              
+                <div class="card">
+                  <img src="img/yamen.jpg" alt="Yamen Kharoub">
+                  <p><strong>Yamen Kharoub</strong></p>
+                  <p>1220432</p>
+                  <p>"Point at the image, and the details will show up."</p>
+                  <div class="item">
+                    <p>Skills: Backend, Node.js, Algorithms</p>
+                  </div>
+                </div>
+              
+                <div class="card">
+                  <img src="img/qosai.jpg" alt="Qosai Badaha">
+                  <p><strong>Qosai Badaha</strong></p>
+                  <p>1210469</p>
+                  <p>"Point at the image, and the details will show up."</p>
+                  <div class="item">
+                    <p>Skills: HTML, CSS, JS</p>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+        </div>
+    </div>
+    <div class="topics">
+      <div class="container">
+        
+        <h2 id="types">HTTP connections: two types</h2>
+        <div class="row">
+        <div class="non">
+        <h3>Non-persistent HTTP</h3>
+        <ol>
+          <li> TCP connection opened</li>
+          <li> at most one object sentover TCP connection</li>
+          <li> TCP connection closed</li>
+          <li>downloading multiple objects required multiple connections</li>
+        
+        </ol>
+        <img src="img/Non-persistent(1).png"  width="300px" height="300px"/>
+        <img src="img/Non-presistent(2).png " width="300px" height="300px" />
+       
+    </div>
+    <div class="yes">
+        <h3>persistent HTTP</h3>
+      <uL>
+        <Li> §TCP connection opened to a server</Li>
+        <li>§multiple objects can be sent over single TCP connection between client,and that server</li>
+        <li>§TCP connection closed</li>
+      
+
+     <img src="img/presistent.png"  width="300px" height="300px"/>
+
+
+      </uL>
+    </div>
+    </div>
+
+    
+    </div>
+
+    </div>
+    <footer class="foot">
+        <div class="container">
+            <div class="row">
+                <div clas="fotter-start">
+                    <div class="logo_fotter">
+                        <img src="./img/Logo_footer.svg" />
+                        <a href="#">Computer Networks</a>
+                    </div>
+                    <div class="links">
+                        <h2>links</h2>
+                        <a href="mySite_2671_en.html" target="_blank">Open Supporting Material</a>
+                        <a href="https://gaia.cs.umass.edu/kurose_ross/index.php" target="_blank">text book</a>
+                        <a href="https://www.birzeit.edu/" target="_blank">Birzeit University</a>
+                    </div>
+                    <div class="icons">
+                        <a href="https://www.facebook.com/BirzeitUniversity" target="_blank"><img
+                                src="./img/facebook.svg" width="25px" height="25px" /></a>
+                        <a href="https://x.com/BirzeitU?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+                            target="_blank"><img src="./img/twetter.svg" width="30px" height="25px" /></a>
+                        <a href="https://ps.linkedin.com/school/birzeit-university/" target="_blank"><img
+                                src="./img/linkedin.svg" width="30px" height="30px" /></a>
+                        <a href="https://www.instagram.com/birzeit.university/?hl=ar" target="_blank"><img
+                                src="./img/instagram.svg" width="25px" height="23px" /></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

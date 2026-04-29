@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video or Photo Form</title>
+    <link rel="stylesheet" href="css/sup.css">
+</head>
+<body>
+    <div id="form_container">
+        <form method="get" action="/">
+            <div class="form-group">
+                <label for="file">Enter Name of Video or Photo:</label>
+                <input type="text" id="file" name="file" placeholder="Enter name..." required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Dynamically display the image or video based on the input -->
+    <div id="media_display">
+        <img id="image" src="" alt="Requested Image" style="display: none;" />
+        <video id="video" controls style="display: none;">
+            <source src="" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        document.querySelector("form").addEventListener("submit", function(e) {
+            e.preventDefault();  // Prevent form from submitting normally
+    
+            var mediaName = document.getElementById("file").value;
+            var image = document.getElementById("image");
+            var video = document.getElementById("video");
+    
+            // Hide both image and video initially
+            image.style.display = "none";
+            video.style.display = "none";
+    
+            // Check if it's a video or an image
+            if (mediaName.endsWith(".jpg") || mediaName.endsWith(".png")) {
+                image.style.display = "block";
+                image.src = mediaName; // Set image source
+            } else if (mediaName.endsWith(".mp4")) {
+                video.style.display = "block";
+                video.querySelector("source").src = mediaName; // Set video source
+                video.load(); // Load the video
+            } else {
+                alert("Unsupported media type");
+            }
+    
+            // Send a request to check if the media exists and handle redirects
+            fetch("/" + mediaName, {
+                method: "GET"
+            })
+            .then(response => {
+                if (response.status === 307) {
+                    // Redirect automatically if status is 307
+                    const redirectUrl = response.headers.get("Location");
+                    window.location.href = redirectUrl;  // Perform the redirect
+                } else {
+                    return response.blob();  // If not a redirect, get the response body
+                }
+            })
+            .then(blob => {
+                if (blob) {
+                    // If we have a valid image or video, update the media display
+                    const contentType = blob.type;
+                    if (contentType.startsWith("image")) {
+                        // Image response
+                        const objectURL = URL.createObjectURL(blob);
+                        image.style.display = "block";
+                        image.src = objectURL;
+                    } else if (contentType.startsWith("video")) {
+                        // Video response
+                        const objectURL = URL.createObjectURL(blob);
+                        video.style.display = "block";
+                        video.querySelector("source").src = objectURL;
+                        video.load();
+                    }
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+        });
+    </script>
+    
+    
+    
+</body>
+</html>
